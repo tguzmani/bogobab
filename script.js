@@ -30,8 +30,13 @@ function preloadImage(fileName) {
   img.src = `url(img/${fileName}.jpg)`
 }
 
-function preloadImages(url) {
+function preloadImages() {
   imageFileNames.forEach(fileName => preloadImage(fileName))
 }
 
-sliderAnimation(0)
+preloadImages()
+
+$(window).on('load', function () {
+  $('.loader').fadeOut('slow')
+  sliderAnimation(0)
+})
